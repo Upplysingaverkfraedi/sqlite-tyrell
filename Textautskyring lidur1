@@ -1,0 +1,21 @@
+Liður 1:
+Tafla fyrir nöfn: Bjó fyrst til töfluna “names” með dálkunum, name, year, frequency og type. Einnig bjó ég til tímabundna töflu “temp_table”, sem hefur dálkana  name, year, frequency. 
+
+Innsetning á gögnum: Fyrst er CSV-skrá með eiginnöfnunum (first_names_freq.csv) flutt inn í tímabundnu töfluna temp_table. Gögnin úr temp_table eru síðan flutt yfir í names töfluna, Þar sem öll nöfnin fá “eiginnafn” í “type” dálkinn. Síðan er öllum gögnum í temp_table eytt.
+
+Millinöfn: Sama er gert fyrir millinöfnin. CSV-skránni (middle_names_freq.csv) er flutt inn í temp_table. Gögnin eru flutt yfir í names töfluna en öll nöfnin fá “Millinafn” í “type” dálkinn. 
+Síðan er temp_table eytt þar sem hún er ekki lengur þörf. 
+
+Liður 2: 
+2.1. Hvaða hópmeðlimur á algengasta eiginnafnið?
+Við notum “SUM(frequency)” til að taka saman heildarfjölda fyrir hvert nafn. Takmörkum síðan leitina við aðeins við Ingvar, Logi og Þórdís. Notum svo “GROUP BY name” til að fá heildar fjölda fyrir hvert nafn. Röðum síðan nöfnunum eftir heildarfjölda svo vinsælasta nafnið birtist efst með “ORDER BY total_frequency DESC”. “LIMIT 1” skilar síðan aðeins algengasta nafninu. 
+Niðurstaðan sýnir að algengasta nafnið í hópnum er Þórdís
+
+2.2. Hvenær voru nöfnin vinsælust?
+Við notum “MAX(frequency)” til að finna hæstu tíðni fyrir hvert nafn. “ORDER BY name, highest_frequency DESC” raðar síðan niðurstöðum eftir nafni og svo tíðni.
+Niðurstöðurnar sýna að Ingvar var vinsælast 1973 með 18 manns, Logi vinsælast 1995 með 6 manns og Þórdís 1992 með 26 manns. 
+2.3. Hvenær komu nöfnin fyrst fram?
+Notum “MIN(year)” til að finna lægsta ártalið sem hvert nafn kemur fram. “ORDER BY first_appearance” raðar síðan niðurstöðum í þeirri röð sem nöfnin fyrst birtust.
+Niðurstöðurnar sýna að Þórdís kom fram 1908, Ingvar 1913 og Logi 1928. 
+
+
