@@ -52,6 +52,37 @@ def save_results(results, output_file):
     df = pd.DataFrame(results)
     df.to_csv(output_file, index=False)
     print(f"Niðurstöður vistaðar í {output_file}")
+def insert_into_database(csv_file, db_file):
+    # Tengjast gagnagrunninum
+    conn = sqlite3.connect(db_file)
+    cursor = conn.cursor()
+
+    # Lesa CSV gögnin inn í Pandas gagnagrunn
+    df = pd.read_csv(csv_file)
+
+    # Setja gögnin í töfluna timataka í gagnagrunninum
+    for index, row in df.iterrows():
+        # Finna hlaupið í hlaup töflunni eða setja inn nýtt hlaup ef það er ekki til
+        cursor.execute('''
+            INSERT OR IGNORE INTO hlaup (nafn, upphaf)
+            VALUES (?, ?)
+        ''', (row['Category'], '2024-01-01 10:00:00'))  
+
+        # Finna hlaupið sem var sett inn (ef það var nýtt)
+        cursor.execute('''
+            SELECT id FROM hlaup WHERE nafn = ?
+        ''', (row['Category'],))
+        hlaup_id = cursor.fetchone()[0]
+
+        # Setja keppandann inn í timataka töfluna
+        cursor.execute('''
+            INSERT OR IGNORE INTO timataka (hlaup_id, nafn, timi, kyn)
+            VALUES (?, ?, ?, ?)
+        ''', (hlaup_id, row['Name'], row['Time'], 'Ótilgreint'))  
+
+    # Vista breytingar og loka gagnagrunninum
+    conn.commit()
+    conn.close()
 
 def main():
     args = parse_arguments()
