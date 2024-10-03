@@ -1,0 +1,27 @@
+
+1. Fjöldi aðalpersóna í bókabálkinum.
+Við notum “RECURSIVE” til að skipta strengnum characters niður í einstaka nöfn með því að nota kommur sem skil. Það er síðan talið hversu margar mismunandi persónur eru í listanum með “COUNT(DISTINCT characters)”. Niðurstaðan er að það eru 75 aðalpersónur í bókabálkinum. 
+
+2. Fjöldi persóna í hverri bók.
+Fyrir hverja bók er “LENGTH” notað til að reikna lengd strengsins “characters”, og síðan er lengdin eftir að kommur hafa verið fjarlægðar tekin frá upphafslengdinni til að fá fjölda persóna (hver komma táknar persónu). Þessi aðferð bætir síðan einum við til að taka með persónuna í enda strengsins. 
+Niðurstöður: Álagafjötrar-2, Nornaveiðar-3, Hyldýpið-1, Vonin-1, Dauðasyndin-2, Illur arfur-3, Draugahöllin-1, Dóttir böðulsins-2, Skuggi fortíðar-2, Vetrarhríð-2, Blóðhefnd-3, Ástarfuni-2, Fótspor Satans-3, Síðasti riddarinn-2, Austanvindar-2, Gálgablómið-3, Garður dauðans-2, Gríman fellur-2, Tennur drekans-1, Hrafnsvængir-3, Um óttubil-3, Jómfrúin og vætturin-3, Vorfórn-4, Í iðrum jarðar-2, Guðsbarn eða galdranorn-3, Álagahúsið-1, Hneykslið-2, Ís og eldur-3, Ástir Lúcífers-3, Ókindin-6, Ferjumaðurinn-2, Hungur-2, Martröð-2, Konan á ströndinni-1, Myrkraverk-1, Galdratungl-4, Vágestur-2, Í skugga stríðsins-2, Raddirnar-2, Fangi tímans-3, Djöflafjallið-1, Úr launsátri-1Í blíðu og stríðu-1, Skapadægur-1, Böðullinn-3, Svarta vatnið-1,Er einhver þarna úti?-1 
+
+3. Fjöldi skipta sem Þengill kemur fyrir.
+Notum aftur “RECURSIVE”  líkt og í fyrstu spurningunni En nú teljum við aðeins hversu oft “Þengill” kemur fyrir með “COUNT(*)”. Niðurstaðan er að Þengill kemur fram 2 sinnum. 
+
+4. Fjöldi Paladín ættarmanna. 
+Hér leitum við að öllum einstaklingum í “Family” sem bera nafnið “Paladín” með því að nota “LIKE” skipunina og teljum þá svo með “COUNT(*)” 
+Niðurstaðan er að það eru 9 Paladín ættmenn. 
+
+5. Algengi illa arfsins hjá útvöldum. 
+Hér notum við “COUNT” til að finna hversu margir einstaklingar í “family” eru skráðir “evil” í “chosen_one”. Síðan deilum við fjölda “evil” með  heildarfjölda þeirra sem hafa gildi í “chosen_one”. Við fáum út að 43.9% af útvöldum eru Illir. 
+
+6. Meðalfjöldi barna á móður. 
+Fyrirspurnin hópar alla meðlimi “family” eftir mömmu (ID í mom dálknum) og telur hversu mörg börn hver mamma á. Meðalfjöldi barna er síðan reiknaður með því að nota AVG á niðurstöðuna. Niðurstaðan er 1.31 börn á hverja móður. 
+
+7. Samtals blaðsíðufjöldi Ísfólksins. 
+Notum “SUM” til að leggja saman heildarfjölda blaðsíðna með því að nota “pages” dálkinn úr “books” töflunni. Heildarfjöldi er 8023. 
+
+8. Meðallengd hvers þáttar af Ískisum.
+Notum “AVG(length)” til að reikna meðallengd þátta úr “storytel_iskisur”. Meðallengdin er 116.4.
+
