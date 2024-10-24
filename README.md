@@ -1,4 +1,15 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/Nf5nD3dq)
 # Gagnavinnsla með SQLite3
+
+## Leiðbeiningar við það að keyra kóða.
+Til að keyra timataka.py:
+
+python3 -m venv path/to/venv
+    source path/to/venv/bin/activate
+    python3 -m pip install requests pandas
+
+til að hlaða niður þeim pökkum sem þarf til að keyra kóðann. Til að keyra kóðann þarf svo að skrifa í terminal línu: python timataka.py --url "Sá Url sem þú vilt skoða" --output timataka.csv (file sem þú vilt vista gögnin í)
+
 
 ## Leiðbeiningar
 
